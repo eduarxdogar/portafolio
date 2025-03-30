@@ -1,43 +1,61 @@
-<div class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-400 via-purple-100 to-indigo-300 text-white">
-  <!-- Título principal -->
-  <h1 class="text-5xl font-extrabold mb-4 drop-shadow-lg">¡Bienvenidos a Mi Portafolio!</h1>
-  <p class="text-xl mb-8 text-center max-w-2xl">
-    Soy <span class="font-bold">Cristian Garzon</span>, un desarrollador de software apasionado por la tecnología y el aprendizaje continuo.
+<div class="flex flex-col items-center justify-center min-h-screen bg-darkPrimary text-white font-mono  animate-darkGradient px-4">
+  <!-- Título animado -->
+  <h1 class="text-5xl font-extrabold mb-6 drop-shadow-lg animate-slide-down  text-indigo-500">
+    Más que código: mi historia
+  </h1>
+
+  <!-- Breve introducción -->
+  <p class="text-lg text-center max-w-3xl text-gray-100 animate-fadeIn transition-colors duration-300 hover:text-indigo-500">
+    ¡Hola! Soy <span class="font-bold">Cristian Garzón</span>, desarrollador full-stack junior apasionado por aprender y crear soluciones innovadoras. Mi camino en el desarrollo web comenzó como autodidacta y se ha transformado en una vocación, combinando mi experiencia en <strong>.NET, Angular y Java (Java 8 y 11)</strong> con un constante deseo de explorar nuevas tecnologías como <strong>React</strong> y <strong>Next.js</strong>.
   </p>
 
-  <!-- Botones de navegación -->
-  <div class="flex space-x-4 mb-12">
-    <a
-      routerLink="/about"
-      class="bg-white text-indigo-600 px-6 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 font-semibold"
-    >
-      Sobre Mí
-    </a>
-    <a
-      routerLink="/projects"
-      class="bg-white text-indigo-600 px-6 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 font-semibold"
-    >
-      Mis Proyectos
-    </a>
+  <!-- Logros y filosofía -->
+  <div class="mt-8 w-full max-w-3xl bg-gray-900 bg-opacity-80 rounded-lg shadow-lg p-6 animate-slide-up">
+    <h2 class="text-3xl font-bold text-indigo-500 mb-4 text-center">Mi Trayectoria y Filosofía</h2>
+    <ul class="list-disc list-inside text-gray-200 text-lg space-y-2 hover:text-indigo-500">
+      <li>Terminé un bootcamp intensivo y construí 4 proyectos en 3 meses, fortaleciendo mi habilidad full-stack.</li>
+      <li>Disfruto tanto del diseño UI/UX como de la lógica del servidor, buscando siempre un código limpio y colaborativo.</li>
+      <li>Estoy en constante aprendizaje, dispuesto a dominar nuevas tecnologías y metodologías.</li>
+    </ul>
   </div>
 
-  <!-- Sección de habilidades -->
-  <div class="bg-white text-gray-800 rounded-lg shadow-lg p-6 w-full max-w-4xl">
-    <h2 class="text-3xl font-bold mb-4 text-center">💻 Mis Skills</h2>
-    <p class="text-center text-gray-600 mb-6">
-      Estas son algunas de las tecnologías con las que he trabajado:
-    </p>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
-      <!-- Renderizar habilidades dinámicamente -->
-      <div *ngFor="let skill of skills" class="flex flex-col items-center">
-        <img
-          [src]="skill.icon"
-          [alt]="skill.name"
-          [title]="skill.name"
-          class="w-16 h-16 mb-2 transition-transform transform hover:scale-110 hover:brightness-125"
-        />
-        <p class="mt-2 font-semibold text-gray-700">{{ skill.name }}</p>
-      </div>
-    </div>
+  <!-- Áreas de interés y hobbies -->
+  <div class="mt-8 w-full max-w-3xl bg-gray-900 bg-opacity-80 rounded-lg shadow-lg p-6 animate-slide-up">
+    <h2 class="text-3xl font-bold text-indigo-400 mb-4 text-center">Mis Intereses y Pasiones</h2>
+    <ul class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center text-gray-200">
+      <li class="flex flex-col items-center space-y-1 hover:scale-110 transition-transform duration-300">
+        <mat-icon class="text-yellow-400 text-4xl">fitness_center</mat-icon>
+        <span>Nutrición & Gym</span>
+      </li>
+      <li class="flex flex-col items-center space-y-1 hover:scale-110 transition-transform duration-300">
+        <mat-icon class="text-blue-400 text-4xl">sports_esports</mat-icon>
+        <span>Videojuegos</span>
+      </li>
+      <li class="flex flex-col items-center space-y-1 hover:scale-110 transition-transform duration-300">
+        <mat-icon class="text-green-400 text-4xl">school</mat-icon>
+        <span>Aprendizaje Continuo</span>
+      </li>
+      <li class="flex flex-col items-center space-y-1 hover:scale-110 transition-transform duration-300">
+        <mat-icon class="text-purple-400 text-4xl">code</mat-icon>
+        <span>Desarrollo Full-stack</span>
+      </li>
+      <li class="flex flex-col items-center space-y-1 hover:scale-110 transition-transform duration-300">
+        <mat-icon class="text-red-400 text-4xl">child_friendly</mat-icon>
+        <span>Familia</span>
+      </li>
+      <li class="flex flex-col items-center space-y-1 hover:scale-110 transition-transform duration-300">
+        <mat-icon class="text-indigo-400 text-4xl">menu_book</mat-icon>
+        <span>Notas en Notion</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Llamado a la acción para proyectos -->
+  <div class="mb-4">
+    <a routerLink="/projects"
+       class="bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-indigo-700 hover:scale-105 transition duration-300 animate-bounce">
+      Ver Mis Proyectos 🚀
+    </a>
   </div>
 </div>
+

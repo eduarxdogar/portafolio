@@ -5,11 +5,12 @@ import { Component, OnInit } from '@angular/core';
 import { TechnologiesService } from '../../services/technologies.service';
 import { CertificadosService } from '../../services/certificados.service';
 import { Certificate } from './../../domain/models/certificate.model';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
   selector: 'app-home',
-  imports: [ CommonModule],
+  imports: [ CommonModule,MatIconModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

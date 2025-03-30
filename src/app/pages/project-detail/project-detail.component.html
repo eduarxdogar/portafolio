@@ -1,90 +1,84 @@
-<div class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-400 via-purple-100 to-indigo-300 text-white">
-  <div class="container mx-auto px-4 py-8 bg-white text-gray-800 rounded-lg shadow-lg max-w-4xl">
-    <!-- Título del proyecto -->
-    <h2 class="text-4xl font-extrabold mb-6 text-center text-indigo-600">
-      {{ project.title }}
+<div class="flex flex-col items-center justify-center min-h-screen bg-darkPrimary text-white font-serif overflow-x-hidden animate-darkGradient">
+  <div class="container mx-auto px-4 py-10 max-w-4xl">
+    
+    <!-- Título del proyecto con icono animado -->
+    <h2 class="text-4xl font-extrabold mb-6 text-center text-indigo-500 animate-slide-down hover:scale-105 transition-transform duration-300 flex items-center justify-center space-x-3">
+      <mat-icon class="text-3xl animate-bounce">developer_board</mat-icon>
+      <span>{{ project.title }}</span>
     </h2>
 
-    <!-- Imagen principal -->
+    <!-- Imagen principal centrada -->
     <div class="flex justify-center mb-8">
-      <img [src]="cover" alt="{{ project.title }}" class="w-108 h-auto rounded-lg shadow-lg" />
+      <img [src]="cover" alt="{{ project.title }}"
+           class="w-full max-w-lg h-auto rounded-lg shadow-lg transition-transform duration-300 hover:scale-110" />
     </div>
 
-    <!-- Galería de imágenes -->
-    <div class="flex justify-center mb-8">
-      <div class="flex space-x-4">
-        <div *ngFor="let image of project.images" class="flex justify-center">
-          <img
-            [src]="image"
-            alt="{{ project.title }}"
-            class="w-36 h-auto cursor-pointer rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-            [class.border-4]="cover === image"
-            [class.border-indigo-600]="cover === image"
-            (click)="changeCover(image)"
-          />
-        </div>
+    <!-- Galería de imágenes en grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+      <div *ngFor="let image of project.images" class="cursor-pointer">
+        <img [src]="image" alt="{{ project.title }}"
+             class="w-full h-auto rounded-lg shadow-md transition-transform duration-300 hover:scale-110 hover:shadow-xl"
+             [class.border-4]="cover === image" [class.border-indigo-600]="cover === image"
+             (click)="changeCover(image)" />
       </div>
     </div>
 
-    <!-- Descripción del proyecto -->
-    <div class="text-center">
-      <p class="mt-6 text-gray-700 text-lg leading-relaxed" [innerHTML]="project.description"></p>
+    <!-- Descripción del proyecto con animación fadeIn -->
+    <div class="text-center px-4">
+      <p class="mt-6 text-gray-300 text-lg leading-relaxed animate-fadeIn hover:text-indigo-600 transition-all duration-300" [innerHTML]="project.description"></p>
     </div>
 
-    <!-- Tecnologías utilizadas -->
+    <!-- Tecnologías utilizadas con animación -->
     <div class="mt-8">
-      <h3 class="text-2xl font-semibold text-indigo-600 text-center mb-4">Tecnologías Utilizadas</h3>
+      <h3 class="text-4xl font-extrabold mb-6 text-center text-indigo-500 animate-slide-down hover:scale-105 transition-transform duration-300">
+        Tecnologías Utilizadas
+      </h3>
       <div class="flex justify-center space-x-6">
         <div *ngFor="let tech of project.technologies" class="flex flex-col items-center">
-          <img [src]="tech.icon" [alt]="tech.name" [title]="tech.name" class="w-12 h-12 mb-2" />
-          <span class="text-sm text-gray-700 font-medium">{{ tech.name }}</span>
+          <img [src]="tech.icon" [alt]="tech.name" [title]="tech.name"
+               class="w-12 h-12 mb-2 transition-transform duration-300 transform hover:scale-125 hover:rotate-6 hover:brightness-150" />
+          <span class="text-sm text-gray-400 font-medium animate-fadeIn">{{ tech.name }}</span>
         </div>
       </div>
     </div>
 
-    <!-- Repositorios -->
+    <!-- Repositorios con iconos animados -->
     <div class="mt-8 text-center">
-      <h3 class="text-2xl font-semibold text-indigo-600 mb-4">Repositorios</h3>
+      <h3 class="text-4xl font-extrabold mb-6 text-center text-indigo-500 animate-slide-down hover:scale-105 transition-transform duration-300">
+        Repositorios
+      </h3>
       <div>
-        <a
-          *ngIf="project.githubUrl"
-          [href]="project.githubUrl"
-          target="_blank"
-          class="text-blue-600 hover:underline block mb-2"
-        >
-          Frontend en GitHub
+        <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank"
+           class="text-blue-400 hover:underline  mb-2 animate-fadeIn flex items-center justify-center space-x-2">
+          <mat-icon>web</mat-icon>
+          <span>Frontend en GitHub</span>
         </a>
-        <a
-          *ngIf="project.githubUrl2"
-          [href]="project.githubUrl2"
-          target="_blank"
-          class="text-blue-600 hover:underline block"
-        >
-          Backend en GitHub
+        <a *ngIf="project.githubUrl2" [href]="project.githubUrl2" target="_blank"
+           class="text-green-400 hover:underline  animate-fadeIn flex items-center justify-center space-x-2">
+          <mat-icon>storage</mat-icon>
+          <span>Backend en GitHub</span>
         </a>
       </div>
     </div>
 
-    <!-- Proyecto online -->
+    <!-- Proyecto online con animación -->
     <div *ngIf="project.onlineUrl" class="mt-8 text-center">
-      <h3 class="text-2xl font-semibold text-indigo-600 mb-4">Proyecto Online</h3>
-      <a
-        [href]="project.onlineUrl"
-        target="_blank"
-        class="text-blue-600 hover:underline text-lg"
-      >
+      <h3 class="text-4xl font-extrabold mb-6 text-center text-indigo-500 animate-slide-down hover:scale-105 transition-transform duration-300">
+        Proyecto Online
+      </h3>
+      <a [href]="project.onlineUrl" target="_blank"
+         class="text-yellow-400 hover:underline text-lg animate-wiggle">
         Ver Proyecto Online
       </a>
     </div>
 
-    <!-- Botón para volver -->
+    <!-- Botón para volver con animación bounce -->
     <div class="mt-8 text-center">
-      <a
-        [routerLink]="['/projects']"
-        class="bg-indigo-600 text-white px-6 py-3 rounded-lg shadow hover:bg-indigo-700 transition duration-300"
-      >
+      <a [routerLink]="['/projects']"
+         class="bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-lg transition duration-300 hover:bg-indigo-700 hover:scale-105 animate-bounce">
         Volver a Proyectos
       </a>
     </div>
+
   </div>
 </div>

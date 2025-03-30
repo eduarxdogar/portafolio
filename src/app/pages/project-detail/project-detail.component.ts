@@ -3,10 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ProjectDetailService } from '../../services/project-detail.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-project-detail',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule,MatIconModule],
   templateUrl: './project-detail.component.html',
   styleUrls: ['./project-detail.component.css'],
 })
@@ -14,7 +15,7 @@ export class ProjectDetailComponent implements OnInit {
   cover: string = '';
   projects: any[] = [];
   project: any;
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
   constructor(
     private route: ActivatedRoute,
     private projectDetailService: ProjectDetailService

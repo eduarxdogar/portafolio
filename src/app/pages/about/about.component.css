@@ -1,0 +1,29 @@
+@keyframes slide-down {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-slide-down {
+    animation: slide-down 0.8s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 1s ease-in;
+  }
+  
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-slide-up {
+    animation: slide-up 0.8s ease-out;
+  }
+  
+  /* Otras animaciones pueden definirse de forma similar... */
+  
+  .mat-icon {
+    /* Asegúrate de tener configurado MatIconModule para usar estos iconos */
+  }
