@@ -184,8 +184,8 @@ export class ProjectDetailService {
         'assets/swlk4.jpg',
         'assets/ftlk5.jpg',
       ],
-      githubUrl: 'https://github.com/eduarxdogar/DDD_Back',
-      githubUrl2: 'https://github.com/eduarxdogar/front',
+      githubUrl: 'https://github.com/eduarxdogar/front',
+      githubUrl2: 'https://github.com/eduarxdogar/DDD_Back',
       technologies: [
         {
           name: 'C#',
