@@ -50,8 +50,9 @@ export class ProjectService {
           icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg',
         },
         {
-          name: 'SQL Server',
-          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg',
+          name: 'MySQL',
+          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+          description: 'Sistema de gestión de bases de datos relacional.',
         },
       ],
     },
@@ -133,8 +134,9 @@ export class ProjectService {
           icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg',
         },
         {
-          name: 'SQL Server',
-          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg',
+          name: 'MySQL',
+          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+          description: 'Sistema de gestión de bases de datos relacional.',
         },
       ],
     },

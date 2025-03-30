@@ -1,20 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { TechnologiesService } from './../../services/technologies.service';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-about',
-  imports: [CommonModule],
+  imports: [ RouterLink,CommonModule],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',
 })
 export class AboutComponent {
-  Math = Math;
-  technologies: any[] = [];
+  skills: { name: string; icon: string }[] = [];
+  constructor(private technologiesService: TechnologiesService) {}
 
-  constructor(private techService: TechnologiesService) {}
-
-  ngOnInit(): void {
-    this.technologies = this.techService.getTechnologies();
+  ngOnInit() {
+    this.skills = this.technologiesService.getTechnologies();
   }
 }

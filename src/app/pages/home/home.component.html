@@ -1,43 +1,101 @@
-<div class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-400 via-purple-100 to-indigo-300 text-white">
-  <!-- Título principal -->
-  <h1 class="text-5xl font-extrabold mb-4 drop-shadow-lg">¡Bienvenidos a Mi Portafolio!</h1>
-  <p class="text-xl mb-8 text-center max-w-2xl">
-    Soy <span class="font-bold">Cristian Garzon</span>, un desarrollador de software apasionado por la tecnología y el aprendizaje continuo.
-  </p>
-
-  <!-- Botones de navegación -->
-  <div class="flex space-x-4 mb-12">
-    <a
-      routerLink="/about"
-      class="bg-white text-indigo-600 px-6 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 font-semibold"
-    >
-      Sobre Mí
-    </a>
-    <a
-      routerLink="/projects"
-      class="bg-white text-indigo-600 px-6 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 font-semibold"
-    >
-      Mis Proyectos
-    </a>
-  </div>
-
-  <!-- Sección de habilidades -->
-  <div class="bg-white text-gray-800 rounded-lg shadow-lg p-6 w-full max-w-4xl">
-    <h2 class="text-3xl font-bold mb-4 text-center">💻 Mis Skills</h2>
-    <p class="text-center text-gray-600 mb-6">
-      Estas son algunas de las tecnologías con las que he trabajado:
-    </p>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
-      <!-- Renderizar habilidades dinámicamente -->
-      <div *ngFor="let skill of skills" class="flex flex-col items-center">
-        <img
-          [src]="skill.icon"
-          [alt]="skill.name"
-          [title]="skill.name"
-          class="w-16 h-16 mb-2 transition-transform transform hover:scale-110 hover:brightness-125"
-        />
-        <p class="mt-2 font-semibold text-gray-700">{{ skill.name }}</p>
-      </div>
+<!-- Contenedor Principal -->
+<div class="min-h-screen bg-darkPrimary text-white font-serif overflow-x-hidden animate-darkGradient">
+  <!-- Contenedor central -->
+  
+    
+    <!-- Header -->
+    <div class="text-center mb-8">
+      <h2 class="text-4xl font-extrabold text-indigo-400 hover:text-indigo-200 transition-all duration-300 hover:scale-105 inline-block">
+        ¡Hola! 👋 Soy Cristian Garzon
+      </h2>
+      <p class="text-lg mt-4 hover:text-indigo-600 transition-all duration-300">
+        Desarrollador de Software Full Stack | Entusiasta de la Tecnología | Aprendiz de por Vida
+      </p>
     </div>
-  </div>
+    
+    <!-- Tecnologías y Foto -->
+    <div class="flex flex-col md:flex-row items-center md:items-start mb-8 justify-center">
+      <!-- Tecnologías Izquierda -->
+      <ul class="list-disc list-inside md:w-1/4 px-4 md:px-14 ml-0 md:ml-16 space-y-2">
+        <li class="flex items-center transition-all duration-300 hover:text-indigo-600"
+          *ngFor="let tech of technologies.slice(0, Math.ceil(technologies.length / 2))">
+          <img [src]="tech.icon" [alt]="tech.name" class="w-10 h-10 mr-2 animate-scaleGlow hover:scale-110" />
+          <span class="hover:underline">{{ tech.name }}</span>
+        </li>
+      </ul>
+    
+      <!-- Foto -->
+      <div class="md:w-1/2 mb-8 md:mb-0 flex justify-center">
+        <img src="assets/yo.jpg" alt="Cristian Garzon"
+          class="rounded-full shadow-2xl w-56 max-w-full h-auto border-4 border-indigo-400 hover:scale-105 transition-transform duration-300" />
+      </div>
+    
+      <!-- Tecnologías Derecha -->
+      <ul class="list-disc list-inside md:w-1/4 px-4 md:px-8 ml-0 space-y-2">
+        <li class="flex items-center transition-all duration-300 hover:text-indigo-600"
+          *ngFor="let tech of technologies.slice(Math.ceil(technologies.length / 2))">
+          <img [src]="tech.icon" [alt]="tech.name" class="w-10 h-10 mr-2 animate-scaleGlow hover:scale-110" />
+          <span class="hover:underline">{{ tech.name }}</span>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Sobre Mí -->
+    <section class="my-8 px-4 text-center">
+      <h2 class="text-2xl font-extrabold mb-4 text-indigo-400 hover:text-indigo-200 transition-all duration-300 hover:scale-105">
+        Sobre Mí
+      </h2>
+      <p class="text-lg hover:text-indigo-600 transition-all duration-300">
+        Desde que inicié mi formación técnica, he comprendido la importancia de combinar estudios formales con la autoformación. Gracias a la ayuda de documentación, cursos en Platzi y otras fuentes, he logrado avanzar de manera constante en mi carrera profesional.
+      </p>
+      <p class="text-lg mt-4 hover:text-indigo-600 transition-all duration-300">
+        Actualmente, trabajo como freelance, lo que me permite desarrollar mis habilidades de forma flexible mientras asumo nuevos desafíos. Combino mi amor por la tecnología con mis pasiones fuera del teclado: disfruto practicar boxeo 🥊, levantar pesas 🏋️‍♂️ y relajarme con videojuegos.
+      </p>
+      <p class="text-lg mt-4 hover:text-indigo-600 transition-all duration-300">
+        Mi meta es convertirme en un ingeniero de sistemas y ser un desarrollador reconocido, capaz de aportar soluciones innovadoras y de calidad.
+      </p>
+    </section>
+    
+    <!-- Certificados -->
+    <div class="mb-8 px-4 text-center">
+      <h3 class="text-4xl font-extrabold text-indigo-400 hover:text-indigo-200 transition-all duration-300 hover:scale-105 mb-4">
+        Certificados y Diplomas
+      </h3>
+      <ul class="list-disc list-inside pl-8 space-y-1">
+        <li *ngFor="let cert of certificates">
+          <a [href]="cert.link" target="_blank" rel="noopener" class="text-blue-400 hover:underline transition-all duration-300">
+            {{ cert.title }}
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Contacto -->
+    <div class="mb-8 text-center px-4">
+      <h3 class="text-2xl font-semibold mb-4 text-indigo-400 hover:text-indigo-200 transition-all duration-300 hover:scale-105">
+        Contáctame
+      </h3>
+      <p class="text-lg mb-2">
+        Correo: 
+        <a href="mailto:cristiangarzon1224@hotmail.com"
+          class="text-blue-400 hover:underline transition-all duration-300">
+          cristiangarzon1224&#64;hotmail.com
+        </a>
+      </p>
+      <p class="text-lg mb-2">
+        LinkedIn: 
+        <a href="https://www.linkedin.com/in/cristian-eduardo-garzon-roa-a6008727a/" target="_blank" rel="noopener"
+          class="text-blue-400 hover:underline transition-all duration-300">
+          Cristian Eduardo Garzon Roa
+        </a>
+      </p>
+      <p class="text-lg mb-2">
+        WhatsApp: 
+        <a href="https://wa.me/573132893066" target="_blank" rel="noopener"
+          class="text-blue-400 hover:underline transition-all duration-300">
+          +57 3132893066
+        </a>
+      </p>
+    </div>
+    
 </div>

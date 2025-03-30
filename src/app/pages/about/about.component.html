@@ -1,118 +1,43 @@
-<div class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-400 via-purple-100 to-indigo-300 text-white font-serif">
-  <div class="container mx-auto px-4 py-8 bg-white text-gray-800 rounded-lg shadow-lg max-w-5xl">
-    <!-- Título -->
-    <div class="text-center mb-8">
-      <h2 class="text-4xl font-extrabold text-indigo-600">¡Hola! 👋 Soy Cristian Garzon</h2>
-      <p class="text-lg mt-4 hover:text-indigo-600 transition-colors duration-300">Desarrollador de Software | Entusiasta de la Tecnología | Aprendiz de por Vida</p>
-    </div>
+<div class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-400 via-purple-100 to-indigo-300 text-white">
+  <!-- Título principal -->
+  <h1 class="text-5xl font-extrabold mb-4 drop-shadow-lg">¡Bienvenidos a Mi Portafolio!</h1>
+  <p class="text-xl mb-8 text-center max-w-2xl">
+    Soy <span class="font-bold">Cristian Garzon</span>, un desarrollador de software apasionado por la tecnología y el aprendizaje continuo.
+  </p>
 
-    <!-- Tecnologías y Foto -->
-    <div class="flex flex-col md:flex-row items-center md:items-start mb-8 justify-center">
-      <!-- Lista izquierda (1/4) -->
-      <ul class="list-disc list-inside md:w-1/4 text-left px-14 ml-16">
-        <li 
-          class="hover:text-indigo-600 transition-colors duration-300" 
-          *ngFor="let tech of technologies.slice(0, Math.ceil(technologies.length / 2))">
-          <span class="flex items-center">
-            <img [src]="tech.icon" [alt]="tech.name" class="w-6 h-6 mr-2 transition-transform transform hover:scale-110 hover:brightness-125" />
-            {{ tech.name }}
-          </span>
-        </li>
-      </ul>
-    
-      <!-- Foto (1/2) -->
-      <div class="md:w-1/2 mb-8 md:mb-0 flex justify-center">
-        <img src="assets/yo.jpg" alt="Cristian Garzon" class="rounded-full shadow-lg w-56 h-auto" />
+  <!-- Botones de navegación -->
+  <div class="flex space-x-4 mb-12">
+    <a
+      routerLink="/about"
+      class="bg-white text-indigo-600 px-6 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 font-semibold"
+    >
+      Sobre Mí
+    </a>
+    <a
+      routerLink="/projects"
+      class="bg-white text-indigo-600 px-6 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 font-semibold"
+    >
+      Mis Proyectos
+    </a>
+  </div>
+
+  <!-- Sección de habilidades -->
+  <div class="bg-white text-gray-800 rounded-lg shadow-lg p-6 w-full max-w-4xl">
+    <h2 class="text-3xl font-bold mb-4 text-center">💻 Mis Skills</h2>
+    <p class="text-center text-gray-600 mb-6">
+      Estas son algunas de las tecnologías con las que he trabajado:
+    </p>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
+      <!-- Renderizar habilidades dinámicamente -->
+      <div *ngFor="let skill of skills" class="flex flex-col items-center">
+        <img
+          [src]="skill.icon"
+          [alt]="skill.name"
+          [title]="skill.name"
+          class="w-16 h-16 mb-2 transition-transform transform hover:scale-110 hover:brightness-125"
+        />
+        <p class="mt-2 font-semibold text-gray-700">{{ skill.name }}</p>
       </div>
-    
-      <!-- Lista derecha (1/4) -->
-      <ul class="list-disc list-inside md:w-1/4 text-left px-8">
-        <li
-          class="hover:text-indigo-600 transition-colors duration-300"
-          *ngFor="let tech of technologies.slice(Math.ceil(technologies.length / 2))">
-          <span class="flex items-center">
-            <img [src]="tech.icon" [alt]="tech.name" class="w-6 h-6 mr-2 transition-transform transform hover:scale-110 hover:brightness-125" />
-            {{ tech.name }}
-          </span>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Sobre mí -->
-    <section class="about-me my-8">
-      <h2 class="text-2xl font-semibold mb-4 text-center text-indigo-600">Sobre Mí</h2>
-      <p class="text-lg text-center hover:text-indigo-600 transition-colors duration-300">
-        Desde que inicié mi formación técnica, he comprendido la importancia de combinar estudios formales con la autoformación. Gracias a la ayuda de documentación, cursos en Platzi y otras fuentes, he logrado avanzar de manera constante en mi carrera profesional.
-      </p>
-      <p class="text-lg text-center mt-4 hover:text-indigo-600 transition-colors duration-300">
-        Actualmente, trabajo como freelance, lo que me permite desarrollar mis habilidades de forma flexible mientras asumo nuevos desafíos. Combino mi amor por la tecnología con mis pasiones fuera del teclado: disfruto practicar boxeo 🥊, levantar pesas 🏋️‍♂️ y relajarme con videojuegos. Estas actividades me enseñan disciplina, constancia y a enfrentar cada obstáculo con determinación.
-      </p>
-      <p class="text-lg text-center mt-4 hover:text-indigo-600 transition-colors duration-300">
-        Mi meta es convertirme en un ingeniero de sistemas y ser un desarrollador reconocido, capaz de aportar soluciones innovadoras y de calidad. Cada experiencia y cada reto me acerca a convertirme en la mejor versión de mí mismo, tanto profesional como personalmente.
-      </p>
-    </section>
-
-    <!-- Certificados -->
-    <div class="mb-8">
-      <h3 class="text-2xl font-semibold mb-4 text-center text-indigo-600">Certificados y Diplomas</h3>
-      <ul class="list-disc list-inside pl-8">
-        <li>
-          <a href="assets/certificados/certificado sena.pdf" target="_blank" rel="noopener" class="text-blue-600 hover:underline">
-            TÉCNICO EN PROGRAMACION DE SOFTWARE
-          </a>
-        </li>
-        <li>
-          <a href="assets/certificados/variables certi.pdf" target="_blank" rel="noopener" class="text-blue-600 hover:underline">
-            VARIABLES Y ESTRUCTURAS DE CONTROL EN LA PROGRAMACION ORIENTADA A OBJETOS: JAVA
-          </a>
-        </li>
-        <li>
-          <a href="assets/certificados/certicyber.pdf" target="_blank" rel="noopener" class="text-blue-600 hover:underline">
-            Ciberseguridad con Microsoft Azure AD
-          </a>
-        </li>
-        <li>
-          <a href="assets/certificados/diploma-react-vite-tailwindcss.pdf" target="_blank" rel="noopener" class="text-blue-600 hover:underline">
-            Diploma React vite tailwindcss
-          </a>
-        </li>
-        <li>
-          <a href="assets/certificados/diploma-typescript.pdf" target="_blank" rel="noopener" class="text-blue-600 hover:underline">
-            Diploma Typescript
-          </a>
-        </li>
-        <li>
-          <a href="assets/certificados/diploma-typescript-tipos-avanzados.pdf" target="_blank" rel="noopener" class="text-blue-600 hover:underline">
-            Diploma Typescript tipos avanzados
-          </a>
-        </li>
-        <li>
-          <a href="assets/certificados/certificado credi.pdf" target="_blank" rel="noopener" class="text-blue-600 hover:underline">
-            Certificado Laboral Contrato de Aprendizaje Credibanco
-          </a>
-        </li>
-        <li>
-          <a href="assets/certificados/laborallinktic.pdf" target="_blank" rel="noopener" class="text-blue-600 hover:underline">
-            Certificado Laboral Linktic Semi senior Full Stacks
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Contacto -->
-    <div class="mb-8 text-center">
-      <h3 class="text-2xl font-semibold mb-4 text-indigo-600">Contáctame</h3>
-      <p class="text-lg mb-2">Correo: <a href="mailto:cristiangarzon1224&#64;hotmail.com" class="text-blue-600 hover:underline">cristiangarzon1224&#64;hotmail.com</a></p>
-      <p class="text-lg mb-2">LinkedIn: 
-        <a href="https://www.linkedin.com/in/cristian-eduardo-garzon-roa-a6008727a/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">
-          Cristian Eduardo Garzon Roa
-        </a>
-      </p>
-      <p class="text-lg mb-2">WhatsApp: 
-        <a href="https://wa.me/573132893066" target="_blank" rel="noopener" class="text-blue-600 hover:underline">
-          +57 3132893066
-        </a>
-      </p>
     </div>
   </div>
 </div>

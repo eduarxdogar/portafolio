@@ -1,36 +1,49 @@
-<mat-toolbar class="bg-gradient-to-r from-indigo-500 to-purple-500 h-24 text-white shadow-lg flex items-center justify-between px-6">
-  <!-- Contenedor del título (centrado automáticamente con flex-grow) -->
-  <div class="flex-1 text-center">
-    <span class="font-serif text-2xl tracking-wide">
-      Mi Portafolio
-    </span>
+<!-- Barra de Navegación -->
+<mat-toolbar class="bg-gradient-to-r from-indigo-700 to-purple-700 h-20 text-white shadow-lg flex items-center px-6">
+  <!-- Logo y Título -->
+  <div class="flex items-center space-x-3">
+    <button  mat-button routerLink="/home">
+    <mat-icon class="text-white text-3xl animate-bounce transition-transform duration-500">account_circle</mat-icon>
+    <span class="font-mono text-xl font-bold tracking-wide hover:text-yellow-300 transition-colors duration-300">Mi Portafolio</span>
+  </button>
   </div>
 
-  <!-- Botones de navegación -->
-  <div class="flex space-x-4">
-    <button
-      mat-button
-      routerLink="/home"
-      routerLinkActive="bg-indigo-600"
-      class="text-white hover:bg-indigo-400 transition-colors px-4 py-2 rounded-lg font-medium"
-    >
-      Inicio
+  <!-- Menú de Navegación en pantallas grandes -->
+  <div class="ml-auto flex space-x-4" *ngIf="!isMobile">
+    <button mat-button routerLink="/home" routerLinkActive="bg-indigo-600"
+      class="flex items-center space-x-2 text-white hover:text-yellow-300 hover:bg-indigo-500 transition-all px-4 py-2 rounded-lg font-semibold shadow-md">
+      <mat-icon class="text-lg animate-pulse">home</mat-icon>
+      <span>Inicio</span>
     </button>
-    <button
-      mat-button
-      routerLink="/projects"
-      routerLinkActive="bg-indigo-600"
-      class="text-white hover:bg-indigo-400 transition-colors px-4 py-2 rounded-lg font-medium"
-    >
-      Proyectos
+
+    <button mat-button routerLink="/projects" routerLinkActive="bg-indigo-600"
+      class="flex items-center space-x-2 text-white hover:text-yellow-300 hover:bg-indigo-500 transition-all px-4 py-2 rounded-lg font-semibold shadow-md">
+      <mat-icon class="text-lg animate-pulse">folder</mat-icon>
+      <span>Proyectos</span>
     </button>
-    <button
-      mat-button
-      routerLink="/about"
-      routerLinkActive="bg-indigo-600"
-      class="text-white hover:bg-indigo-400 transition-colors px-4 py-2 rounded-lg font-medium"
-    >
-      Sobre mí
+
+    <button mat-button routerLink="/about" routerLinkActive="bg-indigo-600"
+      class="flex items-center space-x-2 text-white hover:text-yellow-300 hover:bg-indigo-500 transition-all px-4 py-2 rounded-lg font-semibold shadow-md">
+      <mat-icon class="text-lg animate-pulse">person</mat-icon>
+      <span>Sobre mí</span>
     </button>
   </div>
+
+  <!-- Botón de menú hamburguesa en pantallas pequeñas -->
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="text-white" *ngIf="isMobile">
+    <mat-icon class="hover:scale-110 transition-transform duration-300">menu</mat-icon>
+  </button>
 </mat-toolbar>
+
+<!-- Menú hamburguesa -->
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/home">
+    <mat-icon>home</mat-icon> Inicio
+  </button>
+  <button mat-menu-item routerLink="/projects">
+    <mat-icon>folder</mat-icon> Proyectos
+  </button>
+  <button mat-menu-item routerLink="/about">
+    <mat-icon>person</mat-icon> Sobre mí
+  </button>
+</mat-menu>

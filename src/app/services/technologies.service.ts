@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import {Technology} from "./../domain/models/technology.model";
 
 @Injectable({
   providedIn: 'root',
 })
 export class TechnologiesService {
-  getTechnologies() {
-    return [
+ private technologies : Technology[] = [
+     
       {
         name: 'React',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
@@ -86,7 +87,17 @@ export class TechnologiesService {
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg',
         description: 'Framework de React para aplicaciones web y móviles.',
       },
-    ];
-  }
+      {
+        name: 'TypeScript',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+        description: 'Superset de JavaScript que añade tipado estático.',
+      },
+
+  
+];
   constructor() {}
+  getTechnologies(): Technology[] { 
+    return this.technologies;
+  }
+
 }
