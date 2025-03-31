@@ -17,7 +17,7 @@
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
       <div *ngFor="let image of project.images" class="cursor-pointer">
         <img [src]="image" alt="{{ project.title }}"
-             class="w-full h-auto rounded-lg shadow-md transition-transform duration-300 hover:scale-110 hover:shadow-xl"
+             class="w-35 h-40 rounded-lg shadow-md transition-transform duration-300 hover:scale-110 hover:shadow-xl"
              [class.border-4]="cover === image" [class.border-indigo-600]="cover === image"
              (click)="changeCover(image)" />
       </div>

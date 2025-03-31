@@ -1,10 +1,13 @@
+import { ProjectDetail } from './../domain/models/project-detail';
 import { Injectable } from '@angular/core';
+import { Technology } from './../domain/models/technology.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProjectDetailService {
-  private projects = [
+  
+  private projects:ProjectDetail[] = [
     {
       id: 0,
       title: 'E-commerce',
@@ -207,7 +210,7 @@ export class ProjectDetailService {
     },
   ];
 
-  getProjects() {
+  getProjects() : ProjectDetail[] {
     return this.projects;
   }
 
