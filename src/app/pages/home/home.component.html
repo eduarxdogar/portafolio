@@ -81,7 +81,7 @@
       Certificados y Diplomas
     </h3>
     <ul class="list-disc list-inside pl-8 space-y-1 animate-fadeIn">
-      @for (cert of certificates; track cert) {
+      @for (cert of certificates(); track cert) {
       <li>
         <a [href]="cert.link" target="_blank" rel="noopener" class="text-blue-400 hover:underline transition-all duration-300">
           {{ cert.title }}

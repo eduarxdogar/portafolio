@@ -1,10 +1,9 @@
 import { Technology } from './../../domain/models/technology.model';
 import { title } from 'process';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { TechnologiesService } from '../../services/technologies.service';
-import { CertificadosService } from '../../services/certificados.service';
-import { Certificate } from './../../domain/models/certificate.model';
+import { CertificadosService } from '../../core/services/certificados.service';
 import { MatIconModule } from '@angular/material/icon';
 
 
@@ -23,15 +22,16 @@ export class HomeComponent implements OnInit {
 
   Math = Math;
   technologies: Technology[] = [];
-  certificates: Certificate[] = []; 
+  
+  private techService = inject(TechnologiesService);
+  private certificadosService = inject(CertificadosService);
 
-  constructor(private techService: TechnologiesService,
-   private certificadosService: CertificadosService
-  ) {}
+  certificates = this.certificadosService.certificates;
+
+  constructor() {}
 
   ngOnInit(): void {
     this.technologies = this.techService.getTechnologies();
-    this.certificates = this.certificadosService.getCertificados();
   }
 
   downloadCv() {

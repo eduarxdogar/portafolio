@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-full text-xs font-medium text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200 flex items-center gap-2 cursor-default">
+    <span class="bg-indigo-500/10 border border-indigo-400/20 px-2 py-0.5 rounded-md text-[11px] font-bold text-indigo-300 hover:bg-indigo-500/20 hover:text-indigo-200 transition-all duration-300 flex items-center gap-1.5 cursor-default shadow-[0_0_10px_rgba(99,102,241,0.1)]">
       <ng-content></ng-content>
     </span>
   `,

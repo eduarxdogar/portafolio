@@ -1,0 +1,14 @@
+/* Swiper Customization */
+swiper-container {
+  --swiper-navigation-color: #6366f1; /* Indigo-500-ish to match theme */
+  --swiper-pagination-color: #6366f1;
+  --swiper-pagination-bullet-inactive-color: #4b5563;
+  --swiper-pagination-bullet-inactive-opacity: 0.5;
+  --swiper-navigation-size: 20px;
+  padding-bottom: 40px; /* Space for pagination */
+}
+
+swiper-slide {
+  height: auto;
+  align-self: stretch;
+}
