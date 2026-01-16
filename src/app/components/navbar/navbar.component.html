@@ -24,26 +24,46 @@
 
     <button mat-button routerLink="/about" routerLinkActive="bg-indigo-600"
       class="flex items-center space-x-2 text-white hover:text-yellow-300 hover:bg-indigo-500 transition-all px-4 py-2 rounded-lg font-semibold shadow-md">
-      <mat-icon class="text-lg animate-pulse">person</mat-icon>
-      <span>Sobre mí</span>
-    </button>
+<nav class="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Logo -->
+      <div class="flex-shrink-0 cursor-pointer" routerLink="/">
+        <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-purple animate-pulse">
+          ED
+        </span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-4">
+          <a routerLink="/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-white/10">Inicio</a>
+          <a routerLink="/about" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-white/10">Sobre Mí</a>
+          <a routerLink="/projects" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-white/10">Proyectos</a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="-mr-2 flex md:hidden">
+        <button (click)="isMobile = !isMobile" type="button" class="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
 
-  <!-- Botón de menú hamburguesa en pantallas pequeñas -->
-  <button mat-icon-button [matMenuTriggerFor]="menu" class="text-white" *ngIf="isMobile">
-    <mat-icon class="hover:scale-110 transition-transform duration-300">menu</mat-icon>
-  </button>
-</mat-toolbar>
-
-<!-- Menú hamburguesa -->
-<mat-menu #menu="matMenu">
-  <button mat-menu-item routerLink="/home">
-    <mat-icon>home</mat-icon> Inicio
-  </button>
-  <button mat-menu-item routerLink="/projects">
-    <mat-icon>folder</mat-icon> Proyectos
-  </button>
-  <button mat-menu-item routerLink="/about">
-    <mat-icon>person</mat-icon> Sobre mí
-  </button>
-</mat-menu>
+  <!-- Mobile Menu -->
+  @if (isMobile) {
+  <div class="md:hidden bg-black/95 backdrop-blur-xl border-b border-white/10 absolute w-full" id="mobile-menu">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <a routerLink="/" (click)="isMobile = false" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10">Inicio</a>
+      <a routerLink="/about" (click)="isMobile = false" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10">Sobre Mí</a>
+      <a routerLink="/projects" (click)="isMobile = false" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10">Proyectos</a>
+    </div>
+  </div>
+  }
+</nav>

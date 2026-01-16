@@ -1,12 +1,12 @@
-import { Technology } from './../domain/models/technology.model';
-import { Project } from './../domain/models/project';
-import { Injectable } from '@angular/core';
+import { Technology } from '../../domain/models/technology.model';
+import { Project } from '../../domain/models/project';
+import { Injectable, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProjectService {
-  private  projects : Project[] = [
+  private _projects = signal<Project[]>([
     {
       title: 'E-commerce 🛒',
       description: `
@@ -171,9 +171,7 @@ export class ProjectService {
         },
       ],
     },
-  ];
+  ]);
 
-  getProjects() : Project[]{
-    return this.projects;
-  }
+  public projects = this._projects.asReadonly();
 }
