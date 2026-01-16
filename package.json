@@ -26,6 +26,8 @@
     "angular": "file:../../cli",
     "express": "^4.18.2",
     "lucide-angular": "^0.562.0",
+    "marked": "^17.0.1",
+    "ngx-markdown": "^21.0.1",
     "rxjs": "~7.8.0",
     "swiper": "^12.0.3",
     "tslib": "^2.3.0",

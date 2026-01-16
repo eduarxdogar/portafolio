@@ -15,56 +15,70 @@
     <swiper-container init="false" class="projects-swiper pb-12" #swiper>
       @for (project of projects(); track $index; let i = $index) {
         <swiper-slide class="h-auto p-2">
-          <!-- Glassmorphism Card -->
-          <div class="h-full bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl shadow-indigo-500/10 flex flex-col group hover:border-white/20 transition-all duration-300">
+          <!-- Premium Glassmorphism Card (Vercel Style) -->
+          <div class="h-full bg-black/40 backdrop-blur-xl border border-white/[0.08] rounded-2xl overflow-hidden shadow-xl shadow-black/20 flex flex-col group hover:border-white/[0.12] transition-all duration-500">
               
-            <!-- Image Container -->
-            <!-- Aspect Ratio 16/9 or 4/3 as requested. using aspect-video (16/9) -->
-            <div class="relative w-full aspect-video overflow-hidden">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 z-10"></div>
+            <!-- Image Container with Mask -->
+            <div class="relative w-full aspect-video overflow-hidden image-fade-mask">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 z-10"></div>
               <img
                 [src]="project.image"
                 [alt]="project.title"
-                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               
               <!-- Floating Type Badge Top Right -->
               <div class="absolute top-4 right-4 z-20">
                  @if (project.githubType === 'Frontend') {
-                    <span class="px-3 py-1 bg-blue-500/20 backdrop-blur-md text-blue-300 text-xs font-bold rounded-full border border-blue-500/30 shadow-lg">Frontend</span>
+                    <span class="px-2 py-0.5 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-300 text-[10px] font-medium uppercase tracking-wider shadow-sm">Frontend</span>
                   }
                   @if (project.githubType === 'Backend') {
-                    <span class="px-3 py-1 bg-green-500/20 backdrop-blur-md text-green-300 text-xs font-bold rounded-full border border-green-500/30 shadow-lg">Backend</span>
+                    <span class="px-2 py-0.5 rounded-md bg-green-500/10 border border-green-500/20 text-green-300 text-[10px] font-medium uppercase tracking-wider shadow-sm">Backend</span>
                   }
                   @if (project.githubType === 'Fullstack') {
-                    <span class="px-3 py-1 bg-purple-500/20 backdrop-blur-md text-purple-300 text-xs font-bold rounded-full border border-purple-500/30 shadow-lg">Fullstack</span>
+                    <span class="px-2 py-0.5 rounded-md bg-purple-500/10 border border-purple-500/20 text-purple-300 text-[10px] font-medium uppercase tracking-wider shadow-sm">Fullstack</span>
                   }
               </div>
             </div>
 
             <!-- Content -->
-            <div class="p-6 flex flex-col flex-grow relative z-20">
-              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-neon-blue transition-colors duration-300">
-                {{ project.title }}
-              </h3>
+            <div class="p-6 md:p-8 flex flex-col flex-grow relative z-20 -mt-2">
+              <div class="flex items-center gap-3 mb-3">
+                 <div class="bg-gradient-to-br from-indigo-500/20 to-purple-500/20 p-2 rounded-full border border-white/5 text-indigo-300 shadow-sm">
+                    <lucide-icon [img]="icons[project.iconName] || Code2" class="w-5 h-5"></lucide-icon>
+                 </div>
+                 <h3 class="text-xl font-semibold tracking-tight text-white group-hover:text-indigo-400 transition-colors duration-300">
+                  {{ project.title }}
+                 </h3>
+              </div>
 
-              <div class="text-gray-400 text-sm mb-6 flex-grow line-clamp-3 leading-relaxed" [innerHTML]="project.description"></div>
+              <div class="text-slate-400 mb-8 flex-grow line-clamp-4 relative text-sm font-light leading-7 [&>p]:mb-3 [&>p]:text-slate-400 [&>strong]:text-indigo-300 [&>strong]:font-medium" [innerHTML]="project.description"></div>
 
               <!-- Technologies -->
-              <div class="flex flex-wrap gap-2 mb-6">
+              <div class="flex flex-wrap gap-2 mb-8 items-center">
                 @for (tech of project.technologies; track tech.name) {
-                  <app-ui-badge>
-                     <img [src]="tech.icon" [alt]="tech.name" class="w-3.5 h-3.5" />
-                     {{ tech.name }}
-                  </app-ui-badge>
+                  <div class="group/tech relative cursor-help">
+                    <app-ui-badge>
+                       <img [src]="tech.icon" [alt]="tech.name" class="w-3.5 h-3.5" />
+                       {{ tech.name }}
+                    </app-ui-badge>
+                     <!-- Simple Tooltip -->
+                     <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-[10px] bg-gray-800 text-white rounded opacity-0 group-hover/tech:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/5">
+                        {{ tech.name }}
+                     </span>
+                  </div>
                 }
               </div>
 
-              <!-- Actions -->
-              <div class="mt-auto pt-4 border-t border-white/5 flex gap-4">
-                <a [href]="project.githubUrl" target="_blank" class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-neon-blue/50 text-white text-sm font-semibold transition-all duration-300 group/btn">
-                  <svg class="w-5 h-5 fill-current opacity-80 group-hover/btn:opacity-100" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.03.66-3.72-1.455-3.72-1.455-.54-1.38-1.335-1.755-1.335-1.755-1.095-.75.09-.735.09-.735 1.2.09 1.83 1.245 1.83 1.245 1.065 1.815 2.805 1.29 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405 1.02 0 2.04.135 3 .405 2.28-1.56 3.285-1.23 3.285-1.23.675 1.65.255 2.88.135 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.285 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                  GitHub
+              <!-- Actions (Pill Buttons) -->
+              <div class="mt-auto pt-6 border-t border-white/[0.05] flex gap-3 relative z-30">
+                <a [href]="project.githubUrl" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-all group/btn flex-1 justify-center cursor-pointer relative z-30">
+                  <lucide-icon [img]="Github" class="w-4 h-4 text-gray-400 group-hover/btn:text-white transition-colors"></lucide-icon>
+                  <span class="text-xs font-medium text-gray-300 group-hover/btn:text-white transition-colors">Código</span>
+                </a>
+                 <a [routerLink]="['/projects', project.id]" class="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-indigo-500/10 border border-white/10 hover:border-indigo-500/20 rounded-full transition-all group/btn flex-1 justify-center cursor-pointer relative z-30">
+                  <lucide-icon [img]="ExternalLink" class="w-4 h-4 text-gray-400 group-hover/btn:text-indigo-300 transition-colors"></lucide-icon>
+                  <span class="text-xs font-medium text-gray-300 group-hover/btn:text-indigo-200 transition-colors">Detalles</span>
                 </a>
               </div>
             </div>

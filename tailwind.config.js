@@ -8,6 +8,7 @@ module.exports = {
         108: "45rem",
       },
       fontFamily: {
+        sans: ['Inter', 'sans-serif'],
         custom: ['"YourCustomFont"', "sans-serif"],
       },
       colors: {
