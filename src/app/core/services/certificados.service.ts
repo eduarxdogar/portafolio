@@ -1,11 +1,11 @@
-import { Certificate } from './../domain/models/certificate.model';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
+import { Certificate } from '../../domain/models/certificate.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CertificadosService {
-  private certificates: Certificate[] = [
+  private _certificates = signal<Certificate[]>([
     {
       title: 'TÉCNICO EN PROGRAMACIÓN DE SOFTWARE',
       link: 'assets/certificados/certificado sena.pdf',
@@ -38,11 +38,7 @@ export class CertificadosService {
       title: 'Certificado Laboral Linktic Semi senior Full Stack',
       link: 'assets/certificados/laborallinktic.pdf',
     },
-  ];
+  ]);
 
-  getCertificados(): Certificate [] {
-    return this.certificates;
-  }
-
-  constructor() {}
+  readonly certificates = this._certificates.asReadonly();
 }

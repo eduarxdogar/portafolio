@@ -1,34 +1,8 @@
-<!-- Barra de Navegación -->
-<mat-toolbar class="bg-gradient-to-r from-indigo-700 to-purple-700 h-20 text-white shadow-lg flex items-center px-6">
-  <!-- Logo y Título -->
-  <div class="flex items-center space-x-3">
-    <button  mat-button routerLink="/home">
-    <mat-icon class="text-white text-3xl animate-bounce transition-transform duration-500">account_circle</mat-icon>
-    <span class="font-mono text-xl font-bold tracking-wide hover:text-yellow-300 transition-colors duration-300">Mi Portafolio</span>
-  </button>
-  </div>
 
-  <!-- Menú de Navegación en pantallas grandes -->
-  <div class="ml-auto flex space-x-4" *ngIf="!isMobile">
-    <button mat-button routerLink="/home" routerLinkActive="bg-indigo-600"
-      class="flex items-center space-x-2 text-white hover:text-yellow-300 hover:bg-indigo-500 transition-all px-4 py-2 rounded-lg font-semibold shadow-md">
-      <mat-icon class="text-lg animate-pulse">home</mat-icon>
-      <span>Inicio</span>
-    </button>
-
-    <button mat-button routerLink="/projects" routerLinkActive="bg-indigo-600"
-      class="flex items-center space-x-2 text-white hover:text-yellow-300 hover:bg-indigo-500 transition-all px-4 py-2 rounded-lg font-semibold shadow-md">
-      <mat-icon class="text-lg animate-pulse">folder</mat-icon>
-      <span>Proyectos</span>
-    </button>
-
-    <button mat-button routerLink="/about" routerLinkActive="bg-indigo-600"
-      class="flex items-center space-x-2 text-white hover:text-yellow-300 hover:bg-indigo-500 transition-all px-4 py-2 rounded-lg font-semibold shadow-md">
 <nav class="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md border-b border-white/5 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       
-      <!-- Logo -->
       <div class="flex-shrink-0 cursor-pointer" routerLink="/">
         <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-purple animate-pulse">
           ED

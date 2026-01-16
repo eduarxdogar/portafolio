@@ -28,7 +28,7 @@ export class NavbarComponent {
     this.checkScreenSize();
   }
 
-  @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize', [])
   checkScreenSize() {
     this.isMobile = window.innerWidth < 768; 
   }

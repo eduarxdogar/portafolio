@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { TechnologiesService } from './../../services/technologies.service';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { CertificadosService } from '../../core/services/certificados.service';
 
 
 @Component({
@@ -12,10 +13,9 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './about.component.css',
 })
 export class AboutComponent {
-  skills: { name: string; icon: string }[] = [];
-  constructor(private technologiesService: TechnologiesService) {}
-
-  ngOnInit() {
-    this.skills = this.technologiesService.getTechnologies();
-  }
+  private technologiesService = inject(TechnologiesService);
+  private certificadosService = inject(CertificadosService);
+  
+  skills = this.technologiesService.getTechnologies();
+  certificates = this.certificadosService.certificates;
 }
