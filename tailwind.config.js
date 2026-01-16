@@ -11,8 +11,12 @@ module.exports = {
         custom: ['"YourCustomFont"', "sans-serif"],
       },
       colors: {
-        darkPrimary: "#1a202c",
+        darkPrimary: "#1a202c", // Keeping for compatibility or replace if strictly needed, but adding new ones below
         darkSecondary: "#2d3748",
+        'dark-surface': '#0a0a0a',
+        'dark-primary': '#121212',
+        'neon-blue': '#2563eb',
+        'neon-purple': '#7c3aed',
       },
       keyframes: {
         scaleRotate: {
