@@ -4,19 +4,37 @@ import { register } from 'swiper/element/bundle';
 import { RouterModule } from '@angular/router';
 import { ProjectService } from '../../core/services/project.service';
 import { inject } from '@angular/core';
+import { LucideAngularModule, Github, ExternalLink, Code2, ArrowRight, ShoppingBag, Dumbbell, Bot, Zap, Car, Layers } from 'lucide-angular';
 
 import { UiBadgeComponent } from '../../shared/ui/ui-badge/ui-badge.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, RouterModule, UiBadgeComponent],
+  imports: [CommonModule, RouterModule, UiBadgeComponent, LucideAngularModule],
+  providers: [{ provide: 'LUCIDE_ICONS', useValue: { Github, ExternalLink, Code2, ArrowRight, ShoppingBag, Dumbbell, Bot, Zap, Car, Layers } }],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ProjectsComponent implements AfterViewInit {
   @ViewChild('swiper') swiperRef!: ElementRef;
+  
+  readonly Github = Github;
+  readonly ExternalLink = ExternalLink;
+  readonly Code2 = Code2;
+  readonly ArrowRight = ArrowRight;
+
+  // Icon Mapping
+  readonly icons: any = {
+    'shopping-bag': ShoppingBag,
+    'dumbbell': Dumbbell,
+    'bot': Bot,
+    'zap': Zap,
+    'car': Car,
+    'layers': Layers,
+    'code-2': Code2
+  };
 
   private projectService = inject(ProjectService);
   cover: string = '';

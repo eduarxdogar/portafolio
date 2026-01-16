@@ -11,15 +11,14 @@ export class ProjectDetailService {
     {
       id: 0,
       title: 'E-commerce',
-      description: `
-        <p>Desarrollé una tienda online utilizando <strong>Angular</strong> y un API REST. Este proyecto permite a los usuarios explorar productos, agregarlos al carrito y realizar compras.</p>
-        <p><strong>Reto:</strong> Implementar un carrito de compras dinámico con sumatoria automática de cantidades y totales.</p>
-        <p><strong>Solución:</strong> Utilicé una arquitectura modular para organizar el proyecto en dominios como <code>products</code> y <code>shared</code>, facilitando la escalabilidad y el mantenimiento.</p>
-        <p><strong>Potencial:</strong> Se puede integrar un sistema de pagos en tiempo real y notificaciones por correo.</p>
-      `,
-      images: ['assets/e1.jpg', 'assets/e2.jpg', 'assets/e3.jpg'],
+      iconName: 'shopping-bag',
+      description: 'Plataforma de comercio electrónico SPA construida con Angular 18 y arquitectura modular.',
+      challenge: 'Diseñar una experiencia de usuario fluida con carga rápida de productos y gestión de estado compleja (carrito, filtros, autenticación) sin comprometer el rendimiento en dispositivos móviles.',
+      solution: 'Implementé una arquitectura basada en **Lazy Loading** para dividir el bundle inicial. Utilicé **Angular Signals** para una gestión de estado reactiva y eficiente, eliminando renderizados innecesarios. Integré una pasarela de pagos segura y optimicé las imágenes con directivas personalizadas.',
+      images: ['assets/e1.jpg', 'assets/e1.jpg'],
+      gallery: ['assets/e1.jpg', 'assets/e1.jpg'],
       githubUrl: 'https://github.com/eduarxdogar/ecomerce',
-      onlineUrl: 'https://e-comerce-faffd.web.app/',
+      githubType: 'Frontend',
       technologies: [
         {
           name: 'Angular',
@@ -38,21 +37,14 @@ export class ProjectDetailService {
     {
       id: 1,
       title: 'Sistema de Gym',
-      description: `
-        <p>Desarrollé una aplicación de escritorio para la gestión de gimnasios utilizando <strong>C#</strong> y <strong>.NET</strong>. La aplicación permite gestionar membresías, roles de administrador y usuarios.</p>
-        <p><strong>Reto:</strong> Diseñar una interfaz intuitiva que permita a los administradores gestionar múltiples usuarios y planes.</p>
-        <p><strong>Solución:</strong> Implementé un sistema modular con operaciones CRUD y una base de datos relacional en <strong>SQL Server</strong>.</p>
-        <p><strong>Potencial:</strong> Se puede extender para incluir reportes financieros y un sistema de reservas en línea.</p>
-      `,
-      images: [
-        'assets/inicio.jpg',
-        'assets/base.jpg',
-        'assets/usu.jpg',
-        'assets/merca.jpg',
-        'assets/gym.jpg',
-        'assets/planes.jpg',
-      ],
-      githubUrl2: 'https://github.com/eduarxdogar/Gym',
+      iconName: 'dumbbell',
+      description: 'Sistema integral de gestión de gimnasios desarrollado en .NET Core con arquitectura N-Capas.',
+      challenge: 'Gestionar la concurrencia en la reserva de clases y el control de acceso en tiempo real, además de manejar facturación recurrente segura y escalable.',
+      solution: 'Desarrollé una API RESTful robusta con **.NET Core** y **SQL Server**. Implementé **Stored Procedures** para operaciones críticas de base de datos y un sistema de jobs en segundo plano para la facturación automática. La seguridad se manejó con **JWT** y roles granulares.',
+      images: ['assets/gym.jpg', 'assets/gym.jpg'],
+      gallery: ['assets/gym.jpg', 'assets/gym.jpg'],
+      githubUrl: 'https://github.com/eduarxdogar/Gym',
+      githubType: 'Backend',
       technologies: [
         {
           name: 'C#',
@@ -71,22 +63,15 @@ export class ProjectDetailService {
     },
     {
       id: 2,
-      title: 'Bot para Discord con Node.js y Discord.js (v14)',
-      description: `
-        <p>Desarrollé un chatbot para Discord utilizando <strong>Node.js</strong> y <strong>Discord.js</strong>. El bot responde a comandos slash, maneja eventos en tiempo real y envía recordatorios automáticos.</p>
-        <p><strong>Reto:</strong> Gestionar múltiples eventos y comandos de manera modular.</p>
-        <p><strong>Solución:</strong> Utilicé el patrón Event Emitter de Node.js y <strong>node-schedule</strong> para tareas programadas, además de una base de datos en <strong>MySQL</strong> para persistencia.</p>
-        <p><strong>Potencial:</strong> Se puede integrar con APIs externas para ampliar las funcionalidades del bot.</p>
-      `,
-      images: [
-        'assets/botbase.jpg',
-        'assets/cmd2.jpg',
-        'assets/re3.jpg',
-        'assets/record.jpg',
-        'assets/guardo.jpg',
-        'assets/diario.jpg',
-      ],
+      title: 'Bot para Discord',
+      iconName: 'bot',
+      description: 'Bot automatizado para servidores de Discord escalables, escrito en Node.js.',
+      challenge: 'Mantener una conexión estable y responder a eventos en tiempo real en servidores con miles de usuarios, asegurando escalabilidad y bajo tiempo de respuesta.',
+      solution: 'Utilicé **Node.js** con la librería **Discord.js v14**. Implementé una arquitectura orientada a eventos y comandos Slash (Interaction API). Usé **cron jobs** para tareas programadas y optimicé el manejo de websockets para garantizar la estabilidad.',
+      images: ['assets/bot1.jpg', 'assets/bot1.jpg'],
+      gallery: ['assets/bot1.jpg', 'assets/bot1.jpg'],
       githubUrl: 'https://github.com/eduarxdogar/StandupBot/tree/Crisdev',
+      githubType: 'Frontend',
       technologies: [
         {
           name: 'Node.js',
@@ -105,24 +90,14 @@ export class ProjectDetailService {
     {
       id: 3,
       title: 'Sistema de Ventas',
-      description: `
-        <p>Desarrollé un sistema de ventas utilizando <strong>ASP.NET Core</strong> y <strong>Angular</strong>. El sistema permite gestionar clientes, productos y ventas.</p>
-        <p><strong>Reto:</strong> Implementar autenticación segura con JWT y operaciones CRUD completas.</p>
-        <p><strong>Solución:</strong> Utilicé <strong>Entity Framework</strong> para la persistencia de datos y Angular Material para una interfaz moderna y responsiva.</p>
-        <p><strong>Potencial:</strong> Se puede integrar con un sistema de facturación electrónica.</p>
-      `,
-      images: [
-        'assets/sqlV2.jpg',
-        'assets/ini8.jpg',
-        'assets/fV3.jpg',
-        'assets/fV4.jpg',
-        'assets/FeV5.jpg',
-        'assets/Fd6.jpg',
-        'assets/sqlV5.jpg',
-        'assets/backV1.jpg',
-      ],
+      iconName: 'zap',
+      description: 'Sistema POS (Punto de Venta) robusto con backend en ASP.NET Core y frontend en Angular.',
+      challenge: 'Garantizar la integridad de los datos en transacciones concurrentes de inventario y facturación, con una interfaz de venta rápida y amigable.',
+      solution: 'Implementé un backend con **Entity Framework Core** y transacciones ACID. El frontend usa componentes reactivos optimizados para entrada de datos rápida. Se integraron reportes en tiempo real usando consultas optimizadas.',
+      images: ['assets/login7.jpg', 'assets/login7.jpg'],
+      gallery: ['assets/login7.jpg', 'assets/login7.jpg'],
       githubUrl: 'https://github.com/eduarxdogar/appLoginAuthJwt',
-      githubUrl2: 'https://github.com/eduarxdogar/Venta1.0/tree/main/WsVenta',
+      githubType: 'Fullstack',
       technologies: [
         {
           name: 'Angular',
@@ -133,28 +108,30 @@ export class ProjectDetailService {
           icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg',
         },
         {
-          name: 'MySQL',
-          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
-          description: 'Sistema de gestión de bases de datos relacional.',
+          name: '.NET',
+          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg',
+        },
+        {
+          name: 'SQL Server',
+          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg',
+        },
+        {
+          name: 'Angular Material',
+          icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/angular.svg',
         },
       ],
     },
     {
       id: 4,
-      title: 'Sistema de Concesionarios',
-      description: `
-        <p>Implementé un sistema de concesionarios utilizando <strong>Java</strong> y <strong>Spring Boot</strong>, aplicando la arquitectura hexagonal para desacoplar la lógica de negocio de la infraestructura.</p>
-        <p><strong>Reto:</strong> Diseñar un sistema escalable y fácil de mantener.</p>
-        <p><strong>Solución:</strong> Utilicé Spring Data JPA para la persistencia y REST API para la comunicación entre servicios.</p>
-        <p><strong>Potencial:</strong> Se puede extender para incluir un sistema de inventarios y reportes.</p>
-      `,
-      images: [
-        'assets/java2.jpg',
-        'assets/pos3.jpg',
-        'assets/javapos.jpg',
-        'assets/javasql.jpg',
-      ],
-      githubUrl2: 'https://github.com/eduarxdogar/conssecionaire/tree/main',
+      title: 'Sistema Concesionarios',
+      iconName: 'car',
+      description: 'Microservicio para gestión de concesionarios construido con Spring Boot 3.',
+      challenge: 'Desacoplar la lógica de negocio de la infraestructura para permitir cambios futuros de base de datos o frameworks sin afectar el núcleo del dominio.',
+      solution: 'Adopté una **Arquitectura Hexagonal (Ports & Adapters)**. Definí el dominio en el núcleo, rodeado de puertos (interfaces) y adaptadores (implementaciones). Esto mejoró drásticamente la testabilidad unitaria y la mantenibilidad.',
+      images: ['assets/java1.jpg', 'assets/java1.jpg'],
+      gallery: ['assets/java1.jpg', 'assets/java1.jpg'],
+      githubUrl: 'https://github.com/eduarxdogar/conssecionaire/tree/main',
+      githubType: 'Backend',
       technologies: [
         {
           name: 'Java',
@@ -173,23 +150,20 @@ export class ProjectDetailService {
     },
     {
       id: 5,
-      title: 'Arquitectura DDD Back y Front',
-      description: `
-        <p>Desarrollé un proyecto basado en <strong>Domain-Driven Design (DDD)</strong> utilizando <strong>C#</strong> y <strong>.NET 8</strong> en el backend, y <strong>Angular</strong> en el frontend.</p>
-        <p><strong>Reto:</strong> Implementar patrones de diseño como Repository, Mapper y Service Layer para garantizar una arquitectura escalable.</p>
-        <p><strong>Solución:</strong> Diseñé un modelo base con casos de uso representativos y una estructura modular para facilitar la extensión del sistema.</p>
-        <p><strong>Potencial:</strong> Se puede integrar con microservicios para manejar grandes volúmenes de datos.</p>
-      `,
-      images: [
-        'assets/slk1.jpg',
-        'assets/conlk2.jpg',
-        'assets/bklk3.jpg',
-        'assets/swlk4.jpg',
-        'assets/ftlk5.jpg',
-      ],
-      githubUrl: 'https://github.com/eduarxdogar/front',
-      githubUrl2: 'https://github.com/eduarxdogar/DDD_Back',
+      title: 'Arquitectura DDD',
+      iconName: 'layers',
+      description: 'Solución empresarial basada en Domain-Driven Design (DDD) con .NET 8.',
+      challenge: 'Modelar un dominio complejo con reglas de negocio intrincadas, evitando el "Anemic Domain Model" y asegurando la consistencia transaccional.',
+      solution: 'Apliqué patrones tácticos de **DDD** (Entidades, Agregados, Value Objects). Implementé **CQRS** básico para separar lecturas de escrituras y **Mediator** para desacoplar los manejadores de comandos. El resultado es un código altamente expresivo y alineado con el negocio.',
+      images: ['assets/backlk6.jpg', 'assets/backlk6.jpg'],
+      gallery: ['assets/backlk6.jpg', 'assets/backlk6.jpg'],
+      githubUrl: 'https://github.com/eduarxdogar/DDD_Back',
+      githubType: 'Fullstack',
       technologies: [
+        {
+          name: 'Angular',
+          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg',
+        },
         {
           name: 'C#',
           icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg',
@@ -197,10 +171,6 @@ export class ProjectDetailService {
         {
           name: '.NET',
           icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg',
-        },
-        {
-          name: 'Angular',
-          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg',
         },
         {
           name: 'SQL Server',

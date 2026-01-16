@@ -12,3 +12,9 @@ swiper-slide {
   height: auto;
   align-self: stretch;
 }
+
+/* Image Mask for Premium Fade Effect */
+.image-fade-mask {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
